@@ -31,7 +31,7 @@ def generate_new_response(user_input: str) -> list:
     message_log.append(new_message)
     completions = openai.ChatCompletion.create(model = "gpt-3.5-turbo", messages = message_log)
     response = completions['choices'][0]['message']['content'].strip()
-    message_log.append({"role": 'assistant', "content": response})
+    message_log.append({"role": 'system', "content": response})
     return response
 
 def get_message_log():
